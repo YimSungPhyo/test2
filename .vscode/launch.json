@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Test01Application<test01>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "org.zerock.Test01Application",
+            "projectName": "test01",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
