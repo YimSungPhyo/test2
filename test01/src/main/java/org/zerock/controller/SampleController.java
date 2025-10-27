@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 @RestController //rest 방식의 컨트롤러 입니다.
 public class SampleController {
 
+	
 	//@GetMapping("/hello")
 	@RequestMapping("/hello")
 	public String sayHello() {
