@@ -1,0 +1,61 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java
+{
+
+	//----- 기본 생성  -----------------------
+	"name": "Spring Boot Development",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	//"image": "mcr.microsoft.com/devcontainers/java:1-8-bookworm",
+    "image": "mcr.microsoft.com/devcontainers/java:8-bookworm",
+
+
+
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "none",
+			"installMaven": "true",
+			"installGradle": "false"
+		}
+	},
+
+
+	
+	//----- 추가편집  -----------------------
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [8080],
+	
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "java -version",
+    "postCreateCommand": "mvn clean install", // 컨테이너 생성 후 초기 빌드 및 종속성 다운로드 (선택 사항이지만 권장)
+
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				// 이 설정을 통해 컨테이너에서 프로젝트를 열 때 빌드 구성 업데이트를 대화식으로 수행하도록 합니다.
+				"java.configuration.updateBuildConfiguration": "interactive" 
+				
+				// 컨테이너 터미널의 기본 셸을 설정합니다.
+				//"terminal.integrated.defaultProfile.linux": "bash", 
+				
+				// 기타 VS Code 테마/폰트 설정 등
+				//"workbench.colorTheme": "Default Dark Modern" 
+			},
+
+			// Spring Boot 개발 필수 확장 추가
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				//"Pivotal.vscode-boot-dev-pack",
+				"vmware.vscode-boot-dev-pack"
+			]
+		}
+	}
+
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
